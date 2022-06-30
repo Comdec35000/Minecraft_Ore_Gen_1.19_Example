@@ -17,9 +17,6 @@ public class BiomeModifierRegistry {
             .create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, ExampleMod.MODID);
 
     public static final RegistryObject<Codec<ExampleOreGenerator>> EXAMPLE_ORE = MODIFIERS.register(
-            "example_ore_gen", () -> RecordCodecBuilder.create(builder -> builder.group(
-                    Biome.LIST_CODEC.fieldOf("biomes").forGetter(ExampleOreGenerator::biomes),
-                    PlacedFeature.CODEC.fieldOf("feature").forGetter(ExampleOreGenerator::feature)
-            ).apply(builder, ExampleOreGenerator::new)));
+            "example_ore_gen", () -> ExampleOreGenerator.CODEC);
 
 }
